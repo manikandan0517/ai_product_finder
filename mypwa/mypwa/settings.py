@@ -14,11 +14,9 @@ from pathlib import Path
 import os
 from decouple import config
 
-# Load API key
-SECRET_KEY='django-insecure-38&fbt3@of0tc*z9*017(=@@*j!j2&c1o@mm@w&pj@bqev0ij+'
-DEBUG=True
-OPENAI_API_KEY = config('OPENAI_API_KEY')
-DATABASE_URL = config('DATABASE_URL')
+# Load API ke
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool, default=False)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +30,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+OPENAI_API_KEY = config('OPENAI_API_KEY')
+DATABASE_URL = config('DATABASE_URL')
 
 ALLOWED_HOSTS = ['*']
 
