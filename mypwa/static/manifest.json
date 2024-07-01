@@ -1,0 +1,22 @@
+{
+    "name": "Your App Name",
+    "short_name": "AppShortName",
+    "description": "A brief description of your PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/static/images/Mobile_black_bare_160x160.png",
+        "sizes": "160x160",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/images/Mobile_black_bare_160x160.png",
+        "sizes": "160x160",
+        "type": "image/png"
+      }
+    ]
+  }

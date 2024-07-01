@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcription Results</title>
+</head>
+<body>
+    <h1>Transcription Results</h1>
+    
+    {% if transcription %}
+    <h2>Transcription:</h2>
+    <p>{{ transcription }}</p>
+    {% endif %}
+
+    {% if image_description %}
+    <h2>Image Description:</h2>
+    <p>{{ image_description }}</p>
+    {% endif %}
+
+    {% if stored_data %}
+    <h2>Stored Image Data:</h2>
+    <ul>
+        {% for data in stored_data %}
+            <li>{{ data.object_name }} - {{ data.object_color }} (Count: {{ data.count }})</li>
+        {% empty %}
+            <li>No data available</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <a href="/imagess">datas</a>
+</body>
+</html>

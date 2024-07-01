@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b0b0b;
+            font-family: 'Poppins', sans-serif;
+            color: rgb(16, 16, 16);
+        }
+        .product-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f8f8fb;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Bottom shadow */
+            0 -4px 8px rgba(0, 0, 0, 0.2), /* Top shadow */
+            4px 0 8px rgba(0, 0, 0, 0.2), /* Right shadow */
+            -4px 0 8px rgba(0, 0, 0, 0.2); /* Left shadow */
+        }
+        .product-details {
+            flex: 1;
+            padding-left: 2rem;
+            text-align: left;
+            text-transform: uppercase;
+        }
+        .product-details h1 {
+            color: #181919;
+            margin-bottom: 1rem;
+        }
+        .product-details p {
+            color: #090909;
+            margin-bottom: 0.5rem;
+        }
+        .back-link {
+            margin-top: 2rem;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .img{
+            padding: 2rem;
+            border-radius: 30px;
+           
+            }
+            .imgg{
+                border-radius: 20px;
+                height: 200px;
+                width: 200px;
+            }
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="container">
+        <div class="product-container">
+            <div class="img img-fluid">
+            <img src="{{ image.image.url }}" alt="{{ image.object_name }}" class=" imgg img-fluid product-image">
+        </div>
+            <div class="product-details">
+                
+                <h1>{{ image.object_name }}</h1>
+               
+                <p><strong>Color:</strong> {{ image.color }}</p>
+                <p><strong>Dimensions:</strong> {{ image.dimensions }}</p>
+                <p><strong>Manufacturer:</strong> {{ image.manufacturer }}</p>
+                <p><strong>Specifications:</strong> {{ image.specification }}</p>
+                <p><strong>Description:</strong> {{ image.description }}</p>
+                <a href="{% url 'image_list' %}" class="back-link">Back to list</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

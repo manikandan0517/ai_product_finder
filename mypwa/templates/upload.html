@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    {% load pwa %}
+    {% progressive_web_app_meta %}
+    <link rel="manifest" href="../static/manifest.json">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Audio and/or Image</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("../static/images/8779306.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            border: 2px solid white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            padding-bottom: 2rem;
+            color: rgb(255, 254, 254);
+        }
+
+        .labels {
+            border: 2px solid rgb(248, 245, 245);
+            padding: 12px 24px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, rgba(60, 8, 183, 1) 0%, rgba(24, 253, 242, 1) 19%, rgba(91, 38, 124, 1) 100%);
+            cursor: pointer;
+            color: black;
+            transition: 0.3s linear;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .labels:hover {
+            transform: scale(1.2);
+        }
+
+        input {
+            display: none;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        button {
+            outline: none;
+            border: none;
+            color: rgb(236, 234, 249);
+            padding: 1rem 1.5rem;
+            border-radius: 2rem;
+            font-family: "Reggae One", system-ui;
+            font-weight: 700;
+            background: transparent;
+            border: 2px solid white;
+            margin-top: 0.5rem;
+            transition-duration: 0.5s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, rgb(251, 251, 253) 6%, rgba(118, 5, 183, 0.849) 41%, rgba(0, 212, 255, 1) 91%);
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        a {
+            border: 1px solid rgb(246, 245, 245);
+            padding: 10px 16px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            transition-duration: 0.5s;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        a:hover {
+            background: linear-gradient(90deg, rgb(251, 251, 253) 6%, rgba(118, 5, 183, 0.849) 41%, rgba(0, 212, 255, 1) 91%);
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                height: auto;
+                padding: 1rem;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            .labels {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            button {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            a {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>AI APP</h1>
+        <form action="{% url 'upload_files' %}" method="post" enctype="multipart/form-data">
+            <label class="labels" for="files">Upload Audio</label>
+            <input class="inputs" id="files" type="file" name="audio_file" accept="audio/*">
+            <label class="labels" for="image_file">Upload Image</label>
+            <input class="inputs" id="image_file" type="file" name="image_file" accept="image/*">
+            <button type="submit">Upload</button>
+        </form>
+        <h3><a href="/imagess">GO TO DATAS</a></h3>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

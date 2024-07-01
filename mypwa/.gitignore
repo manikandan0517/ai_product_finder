@@ -1,0 +1,18 @@
+# Ignore SQLite database file
+*.sqlite3
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+
+# Ignore environment variables file
+.env
+
+# Ignore staticfiles directory
+staticfiles/
+
+# Ignore media files directory
+media/
+
+# Ignore macOS system files
+.DS_Store

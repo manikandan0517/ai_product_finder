@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .aside {
+            background: linear-gradient(90deg, rgba(253, 24, 252, 1) 19%, rgba(91, 38, 124, 1) 100%);
+            display: flex;
+            height: 600px;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 10px;
+            padding: 1rem;
+            position: sticky;
+            top: 10px;
+        }
+
+        hr {
+            width: 40px;
+            border: 1px solid white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            color: #61729d;
+            text-transform: uppercase;
+            font-size: small;
+            background-color: #1e1e2f;
+            overflow-x: auto;
+        }
+
+        th {
+            font-size: large;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid rgb(252, 250, 251);
+        }
+
+        .imagesi {
+            height: 80px;
+            width: 80px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin: 1rem 0;
+            color: #61729d;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            transition-duration: 0.3s;
+        }
+
+        a:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include "navbar.html" %}
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 mb-4 d-none d-md-block">
+                <div class="aside">
+                    <h3>AI APP</h3>
+                    <hr>
+                    <h3><a href="/">HOME</a></h3>
+                    <h3><a href="/admin">ADMIN</a></h3>
+                </div>
+            </div>
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-12 col-12">
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Object Name</th>
+                            <th>Color</th>
+                            <th>Count</th>
+                            <th>Dimensions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for image in images %}
+                            <tr>
+                                <td><a href="{% url 'image_detail' image.pk %}"><img src="{{ image.image.url }}" alt="{{ image.object_name }}" class="img-fluid imagesi"></a></td>
+                                <td><a href="{% url 'image_detail' image.pk %}">{{ image.object_name }}</a></td>
+                                <td>{{ image.color }}</td>
+                                <td>{{ image.count }}</td>
+                                <td>{{ image.dimensions }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
